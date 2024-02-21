@@ -48,10 +48,10 @@ public class SportRepositoryTest {
         mockMvc.perform(get("/sports"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(2)))
-                .andExpect(jsonPath("$[0].sportId", is(1)))
-                .andExpect(jsonPath("$[0].sportType", is("Football")))
-                .andExpect(jsonPath("$[1].sportId", is(2)))
-                .andExpect(jsonPath("$[1].sportType", is("Basketball")));
+                .andExpect((ResultMatcher) jsonPath("$[0].sportId", is(1)))
+                .andExpect((ResultMatcher) jsonPath("$[0].sportType", is("Football")))
+                .andExpect((ResultMatcher) jsonPath("$[1].sportId", is(2)))
+                .andExpect((ResultMatcher) jsonPath("$[1].sportType", is("Basketball")));
     }
 
     @Test
